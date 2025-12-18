@@ -358,4 +358,58 @@ body{
     .seekbar {
         width: calc(100vw-120px);
     }
+    .hamburger{
+        display: block;
+    }
+    .right{
+        margin: 0;
+    }
+    .card{
+        width: 55vw;
+    }
+    .cardContainer{
+        margin: 0;
+        justify-content: center;
+    }
+    .close{
+        display: block;
+    }
+    .abovebar{
+        flex-direction: column;
+        gap: 23px;
+        align-items: center;
+    }
+    .cardContainer{
+        max-height: unset;
+        overflow-y: unset;
+        margin-bottom: 35vh;
+    }
+    .playbar{
+        right: 25px;
+    }
+
+}
+@media (max-width: 500px){
+    .card{
+        width: 100%;
+
+    }
+    .header>*{
+        padding: 2px;
+    }
+    .buttons>*{
+        margin: 0 6px;
+    }
+    .header{
+        padding: 7px;
+    }
+    .spotifyPlaylist h1{
+        padding: 4px;
+    }
+    .library{
+        height: 85vh;
+    }
+    .left{
+        width: 100vh;
+    }
 }
