@@ -58,3 +58,14 @@ async function getSongs(folder) {
 
    return songs
 }
+
+const playmusic = (track, pause = false)=>{
+    currentsong.src = `/&{currentFolder}/` + track
+    if(!pause){
+        currentsong.play( )
+        play.src = "img/pause.svg"
+
+    }
+    document.querySelector(".songInfo").innerHTML= decodeURI(track)
+    document.querySelector(".songtime").innerHTML= "00:00/00:00"
+}
