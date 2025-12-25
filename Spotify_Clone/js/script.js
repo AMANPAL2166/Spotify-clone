@@ -112,3 +112,20 @@ async function displayAlbums( ) {
     
     }
 }
+async function main( ) {
+    //get the list of all the songs
+    await getSongs("songs/ncs");
+    playmusic(songs[0], true)
+    //Display all the albums on the page
+    await displayAlbums()
+    //Attach an event listener to play, next and previous
+    play.addEventListener("click",()=>{
+        if(currentsong.paused){
+            currentsong.play()
+            play.src = "img/pause.svg" 
+            }else{
+                currentsong.pause()
+                play.src = "img/play.svg"
+        }
+    })
+}
