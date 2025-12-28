@@ -128,4 +128,22 @@ async function main( ) {
                 play.src = "img/play.svg"
         }
     })
+    //Listen for timeupdate event
+    currentsong.addEventListener("timeupdate", ()=>{
+        document.querySelector(".songtime").innerHTML = `${secondToMinutesSeconds(currentsong.currentTime)}/${secondToMinutesSeconds(currentsong.duration)}`
+        document.querySelector(".circle").style.left = (currentsong.currentTime/currentsong.duration)*100 + "%";
+
+    })
+    //Add an event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e=>{
+        let percent = (e.offsetX /e.target.getBoudingClientRect().width)*100;
+        document.querySelector(".circle").style.left = percent + "%";
+        currentsong.currentTime = ((currentsong.duration)*percent)/100;
+
+    })
+    //Add an event listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "-120%"
+    })
+
 }
