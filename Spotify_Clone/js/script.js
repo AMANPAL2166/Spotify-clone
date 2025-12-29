@@ -145,5 +145,18 @@ async function main( ) {
     document.querySelector(".hamburger").addEventListener("click", ()=>{
         document.querySelector(".left").style.left = "-120%"
     })
+    //Add an event listener for close button
+    document.querySelector(".close").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left="-120%";
 
+    })
+    //Add an event listener to previous
+    previous.addEventListener("click", () => {
+        currentSong.pause()
+        console.log("Previous clicked")
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index - 1) >= 0) {
+            playMusic(songs[index - 1])
+        }
+    })
 }
