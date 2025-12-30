@@ -159,4 +159,34 @@ async function main( ) {
             playMusic(songs[index - 1])
         }
     })
+    //Add an event listener to next
+    next.addEventListener("click",()=>{
+        currentsong.pause()
+        console.log("Next clicked")
+        let index = songs.indexOf(currentsong.src.split("/").slice(-1)[0])
+        if((index+1)<songs.length){
+            playMusic(song[index+1])
+        }
+    })
+    //Add an event to volume
+    document.querySelector(".range").getElementsByClassName("input")[0].addEventListener("change", (e)=>{
+        console.log("Setting volumn to", e.target.value, "/100" )
+        currentsong.volume = parseInt(e.target.value)/100
+        if(currentsong.valume>0){
+            document.querySelector(".valume>img").src = document.querySelector(".valume>img").src.replace("mute.svg", "valume.svg")
+        }
+    })
+    //Add event listener to mute the track
+    document.querySelector(".volume.img").addEventListener("click", e=>{
+        if(e.target.src.includes("volumn.svg")){
+            e.target.src = e.target.src.replace("valume.svg", "mute.svg")
+            currentSong.valume = 0;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
+        }else{
+            e.target.src = e.target.src.replace("mute.svg","valume.svg")
+            currentSong.valume = .10;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
+        }
+    })
 }
+main()
